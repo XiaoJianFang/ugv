@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--EXPORTED BY TOOL, DON'T MODIFY IT!-->
+<!--Source File: BT_Dominant.xml-->
+<behavior name="BT_Dominant" agenttype="Agent_Dominant" version="5">
+  <node class="Parallel" id="0">
+    <property ChildFinishPolicy="CHILDFINISH_LOOP" />
+    <property ExitPolicy="EXIT_ABORT_RUNNINGSIBLINGS" />
+    <property FailurePolicy="FAIL_ON_ALL" />
+    <property SuccessPolicy="SUCCEED_ON_ONE" />
+    <node class="Action" id="1">
+      <property Method="Self.Agent_Dominant::HandleFrame()" />
+      <property ResultOption="BT_SUCCESS" />
+    </node>
+    <node class="Selector" id="3">
+      <node class="Sequence" id="9">
+        <node class="Or" id="18">
+          <node class="Condition" id="10">
+            <property Operator="Equal" />
+            <property Opl="Self.Agent_Dominant::isEstop()" />
+            <property Opr="const bool true" />
+          </node>
+          <node class="Condition" id="6">
+            <property Operator="Equal" />
+            <property Opl="System_Status Self.Agent_Dominant::systemStatus" />
+            <property Opr="const System_Status communication_error" />
+          </node>
+        </node>
+        <node class="Action" id="11">
+          <property Method="Self.Agent_Dominant::Estop()" />
+          <property ResultOption="BT_INVALID" />
+        </node>
+      </node>
+      <node class="Sequence" id="5">
+        <node class="Selector" id="48">
+          <node class="Sequence" id="2">
+            <node class="Condition" id="44">
+              <property Operator="Equal" />
+              <property Opl="DriveState Self.Agent_Dominant::currentState" />
+              <property Opr="const DriveState Tracking" />
+            </node>
+            <node class="Action" id="12">
+              <property Method="Self.Agent_Dominant::find_advice_speed()" />
+              <property ResultOption="BT_SUCCESS" />
+            </node>
+          </node>
+          <node class="Sequence" id="40">
+            <node class="Condition" id="42">
+              <property Operator="Equal" />
+              <property Opl="DriveState Self.Agent_Dominant::m5Gstate" />
+              <property Opr="const DriveState Estop" />
+            </node>
+            <node class="Action" id="47">
+              <property Method="Self.Agent_Dominant::find_5G_EstopSpeed()" />
+              <property ResultOption="BT_SUCCESS" />
+            </node>
+          </node>
+          <node class="Sequence" id="41">
+            <node class="Condition" id="43">
+              <property Operator="Equal" />
+              <property Opl="DriveState Self.Agent_Dominant::m5Gstate" />
+              <property Opr="const DriveState Following" />
+            </node>
+            <node class="Action" id="45">
+              <property Method="Self.Agent_Dominant::find_5G_FollowingSpeed()" />
+              <property ResultOption="BT_SUCCESS" />
+            </node>
+          </node>
+        </node>
+        <node class="Selector" id="13">
+          <node class="Sequence" id="28">
+            <node class="Condition" id="32">
+              <property Operator="Equal" />
+              <property Opl="DriveState Self.Agent_Dominant::m5Gstate" />
+              <property Opr="const DriveState Following" />
+            </node>
+            <node class="Action" id="33">
+              <property Method="Self.Agent_Dominant::FollowingFrontCar()" />
+              <property ResultOption="BT_INVALID" />
+            </node>
+            <node class="Action" id="35">
+              <property Method="Self.Agent_Dominant::Action()" />
+              <property ResultOption="BT_INVALID" />
+            </node>
+          </node>
+          <node class="Sequence" id="4">
+            <node class="And" id="7">
+              <node class="Condition" id="8">
+                <property Operator="Equal" />
+                <property Opl="LaneIdx Self.Agent_Dominant::currentLane" />
+                <property Opr="const LaneIdx Mid" />
+              </node>
+              <node class="Condition" id="20">
+                <property Operator="Equal" />
+                <property Opl="Self.Agent_Dominant::no_collision_or_collision_far_away()" />
+                <property Opr="const bool true" />
+              </node>
+            </node>
+            <node class="Action" id="15">
+              <property Method="Self.Agent_Dominant::Tracking()" />
+              <property ResultOption="BT_INVALID" />
+            </node>
+            <node class="Action" id="26">
+              <property Method="Self.Agent_Dominant::Action()" />
+              <property ResultOption="BT_INVALID" />
+            </node>
+          </node>
+          <node class="Sequence" id="27">
+            <node class="And" id="46">
+              <node class="Or" id="29">
+                <node class="Condition" id="30">
+                  <property Operator="Equal" />
+                  <property Opl="Self.Agent_Dominant::I_want_to_changlane()" />
+                  <property Opr="const bool true" />
+                </node>
+                <node class="Condition" id="19">
+                  <property Operator="Equal" />
+                  <property Opl="Self.Agent_Dominant::I_need_to_changelane()" />
+                  <property Opr="const bool true" />
+                </node>
+              </node>
+              <node class="Condition" id="31">
+                <property Operator="Equal" />
+                <property Opl="Self.Agent_Dominant::Im_able_to_changelane()" />
+                <property Opr="const bool true" />
+              </node>
+            </node>
+            <node class="Action" id="34">
+              <property Method="Self.Agent_Dominant::Action()" />
+              <property ResultOption="BT_INVALID" />
+            </node>
+            <node class="Action" id="16">
+              <property Method="Self.Agent_Dominant::ChangingLane()" />
+              <property ResultOption="BT_INVALID" />
+            </node>
+          </node>
+          <node class="Sequence" id="21">
+            <node class="And" id="22">
+              <node class="Condition" id="23">
+                <property Operator="NotEqual" />
+                <property Opl="LaneIdx Self.Agent_Dominant::currentLane" />
+                <property Opr="const LaneIdx Mid" />
+              </node>
+              <node class="Condition" id="24">
+                <property Operator="Equal" />
+                <property Opl="Self.Agent_Dominant::no_collision_or_collision_far_away()" />
+                <property Opr="const bool true" />
+              </node>
+              <node class="Condition" id="37">
+                <property Operator="Equal" />
+                <property Opl="Self.Agent_Dominant::is_other_lane()" />
+                <property Opr="const bool true" />
+              </node>
+            </node>
+            <node class="Action" id="17">
+              <property Method="Self.Agent_Dominant::TrackingLane()" />
+              <property ResultOption="BT_INVALID" />
+            </node>
+            <node class="Action" id="25">
+              <property Method="Self.Agent_Dominant::Action()" />
+              <property ResultOption="BT_INVALID" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node class="Action" id="14">
+      <property Method="Self.Agent_Dominant::Move()" />
+      <property ResultOption="BT_INVALID" />
+    </node>
+  </node>
+</behavior>

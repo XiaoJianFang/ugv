@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--EXPORTED BY TOOL, DON'T MODIFY IT!-->
+<agents version="1" signature="4041371557">
+  <agent type="Agent_Dominant" base="behaviac::Agent" signature="1855170756">
+    <properties>
+      <property name="currentLane" type="LaneIdx" member="false" static="false" defaultvalue="Mid" />
+      <property name="currentState" type="DriveState" member="false" static="false" defaultvalue="Tracking" />
+      <property name="environment" type="Plan_Frame" member="false" static="false" defaultvalue="{mapFlag=Straight_Road;min_distance_to_global_route=0;planned_dis_remain=0;currentSpeed_ms=0;currentSteer_deg=0;static_obj=0:;moving_obj=0:;nearObs=0:;global_route=0:;history_path=0:;predict_path=0:;route_goal=null;lane_goal=null;}" />
+      <property name="lastState" type="DriveState" member="false" static="false" defaultvalue="Tracking" />
+      <property name="m5Gstate" type="DriveState" member="false" static="false" defaultvalue="Tracking" />
+      <property name="min_collision_time" type="double" member="false" static="false" defaultvalue="-1" />
+      <property name="planConfig" type="PlanConfig" member="false" static="false" defaultvalue="{frequency=0;log_level=0;plannner_type=0;enable_avoidance=0;V_width_half=0;V_front=0;V_back=0;lat_safe_margin=0;lon_safe_margin=0;min_speed_threshold=0;static_safe_front=0;static_safe_back=0;static_safe_side=0;predict_time_interval=0;predict_num=0;expected_time=0;max_acceleration=0;axis_dis=0;tyre_to_steer=0;tyre_to_steer_right=0;display_enabled=0;myID=0;follow_dis=0;}" />
+      <property name="systemStatus" type="System_Status" member="false" static="false" defaultvalue="good" />
+    </properties>
+  </agent>
+</agents>
