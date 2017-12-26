@@ -325,6 +325,7 @@ struct PacketHighResolutionMap
     int16_t pointxstyle[50];
 }
 
+
 struct PacketImage
 {
 	int16_t rows;
