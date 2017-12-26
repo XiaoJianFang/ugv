@@ -1,0 +1,257 @@
+package V2XCommItf;
+
+struct OtherVehicleData
+{
+  int32_t stationID;      // indicates following data belongs to which surrounding vehicle
+
+	float accuracy;         // A circle around the reference position (latitude + longitude)
+	                        // Assumed to be 95% of confidence level. 
+	                        // Accurate to 1 centimeter
+
+	double lat;             // Absolute geographical latitude in a WGS84 coordinate system, 
+	                        // providing a range of 90 degrees in north or in south hemisphere. 
+	                        // Positive values are used for latitude in north of the Equator, 
+	                        // negative values are used for latitude in south of the Equator.
+	                        // Accurate to 0.1 microdegree, i.e., 0.0000001 degree
+
+	double lon;             // Absolute geographical longitude in a WGS84 co-ordinate system,
+                 	        // providing a range of 180 degrees to the east or to the west of 
+	                        // the prime meridian (±Ÿ³õ×ÓÎçÏß).    
+	                        // Negative values are used for longitudes to the west,
+	                        // positive values are used for longitudes to the east.
+	                        // Accurate to 0.1 microdegree, i.e., 0.0000001 degree
+
+	double heading;         // Orientation of a heading with regards to the WGS84 north.
+	                        // North (0 degree), East(90 degree), South(180 degree), West(270 degree)
+	                        // Accurate to 0.1 degree
+
+	float speed;            // Accurate to 0.01 m/s
+
+	double   referenceTime;   // time records the instant position information is acquired
+	                          // milliseconds from GPS time zero (0h 1980-01-06) 
+
+	double   longitudinalAcceleration; // Vehicle acceleration in longitudinal direction
+	                                   // Accurate to 0.1 m/s^2
+
+	double   lateralAcceleration;      // Vehicle acceleration in lateral direction
+	                                   // Accurate to 0.1 m/s^2
+	                                   
+	int32_t  platoonID;       // Global unique ID of the vehicle platoon 
+  int32_t  posInPlatoon;    // Position within the vehicle platoon
+  
+}
+
+
+
+
+
+// Channel name is "ENVIRONMENTAL_EVENT"
+
+// This message is sent our by MessageHandler, and should be handled by autonomous driving system
+
+struct CauseCodeType
+{
+  const int16_t Reserved         = 0;                                   // the value is reserved for future use
+	const int16_t TrafficCondition = 1;                                   // the type of event is an abnormal traffic condition
+	const int16_t Accident = 2;                                           // the type of event is a road accident
+	const int16_t Roadworks = 3;                                          // the type of event is roadwork
+	const int16_t AdverseWeatherCondition_Adhesion = 6;                   // the type of event is low adhesion
+	const int16_t HazardousLocation_SurfaceCondition = 9;                 // the type of event is abnormal road surface condition
+	const int16_t HazardousLocation_ObstacleOnTheRoad = 10;               // the type of event is obstacle on the road
+	const int16_t HazardousLocation_AnimalOnTheRoad = 11;                 // the type of event is animal on the road
+	const int16_t HumanPresenceOnTheRoad = 12;                            // the type of event is human presence on the road
+	const int16_t WrongWayDriving = 14;                                   // the type of the event is vehicle driving in wrong way
+	const int16_t RescueAndRecoveryWorkInProgress = 15;                   // the type of event is rescue and recovery work for 
+	                                                                      // accident or for a road hazard in progress
+	const int16_t AdverseWeatherCondition_ExtremeWeatherCondition = 17;   // the type of event is extreme weather condition
+	const int16_t AdverseWeatherCondition_Visibility = 18;                // the type of event is low visibility
+	const int16_t AdverseWeatherCondition_Precipitation = 19;             // the type of event is precipitation
+	const int16_t SlowVehicle = 26;                                       // the type of event is slow vehicle driving on the road
+	const int16_t DangerousEndOfQueue = 27;                               // the type of event is dangerous end of vehicle queue
+	const int16_t VehicleBreakdown = 91;                                  // the type of event is break down vehicle on the road
+	const int16_t PostCrash = 92;                                         // the type of event is a detected crash
+	const int16_t HumanProblem = 93;                                      // the type of event is human health problem in vehicles
+	                                                                      // involved in traffic
+	const int16_t StationaryVehicle = 94;                                 // the type of event is stationary vehicle
+	const int16_t EmergencyVehicleApproaching = 95;                       // the type of event is approaching vehicle
+	                                                                      // operating emergency mission
+	const int16_t HazardousLocation_DangerousCurve = 96;                  // the type of event is dangerous curve
+	const int16_t CollisionRisk = 97;                                     // the type of event is a collision risk
+	const int16_t SignalViolation = 98;                                   // the type of event is signal violation
+	const int16_t DangerousSituation = 99;                                // the type of event is dangerous situation in which
+	                                                                      // autonomous safety system in vehicle is activated
+}
+
+struct HazardousLocation_ObstacleOnTheRoad_SubCauseCodeType
+{
+  const int16_t Unavailable1 = 0;        // in case further detailed information on the detected obstacle is unavailable
+	const int16_t ShedLoad = 1;            // in case detected obstacle is large amount of obstacles (shedload)
+	const int16_t PartsOfVehicles = 2;     // in case detected obstacles are parts of vehicles
+	const int16_t PartsOfTyres = 3;        // in case the detected obstacles are parts of tyres
+	const int16_t BigObjects = 4;          // in case the detected obstacles are big objects
+	const int16_t FallenTrees = 5;         // in case the detected obstacles are fallen trees
+	const int16_t HubCaps = 6;             // in case the detected obstacles are hub caps
+	const int16_t WaitingVehicles = 7;     // in case the detected obstacles are waiting vehicles
+}
+
+struct CollisionRisk_SubCauseCodeType
+{
+  const int16_t Unavailable2 = 0;                // in case information on the type of collision risk is unavailable
+	const int16_t LongitudinalCollisionRisk = 1;   // in case the type of detected collision risk is longitudinal
+	                                               // collision risk, e.g. forward collision or face to face collision
+	const int16_t CrossingCollisionRisk = 2;       // in case the type of detected collision risk is crossing collision risk
+	const int16_t LateralCollisionRisk = 3;        // in case the type of detected collision risk is lateral collision risk
+	const int16_t VulnerableRoadUser = 4;          // in case the type of detected collision risk involves
+	                                               // vulnerable road users e.g. pedestrians or bicycles
+}
+
+struct EventPosition         
+{
+	double lat;         
+	double lon;         
+}
+
+struct EventType
+{
+	int16_t causeCode;
+	int16_t subCauseCode;
+} 
+
+// MessageHandler -> Autonomous Driving System 
+struct PacketIncomingEventData
+{
+  int32_t stationID;    // indicates which station (vehicle or RSU) sends out this event message
+  int32_t seqNum;       // sequence number to uniquely identify the event message within originating station 
+                        // valid range 0~65535
+  double  eventDetectionTime;   // Time at which the event is detected.
+	                              // milliseconds from GPS time zero (0h 1980-01-06) 
+	                              
+	EventPosition eventPosition;  // Geographical (horizontal) position of the detected event
+	EventType     eventType;
+	float         speed;          // Accurate to 0.01 m/s
+	                              // When (eventType.causeCode    == CollisionRisk) && 
+	                              //      (eventType.subCauseCode == LongitudinalCollisionRisk)
+	                              // speed value should be present, otherwise, it is 0 and should be ignored                
+	double longitudinalAcceleration;   // Vehicle acceleration in longitudinal direction
+	                                   // Accurate to 0.1 m/s^2
+	                                   // When (eventType.causeCode    == CollisionRisk) && 
+	                                   //      (eventType.subCauseCode == LongitudinalCollisionRisk)
+	                                   // this value should be present, otherwise, it is 0 and should be ignored	                              
+	                              
+}
+
+
+
+// Channel name is "INCOMING_PLATOONING_REQUEST"
+
+// MessageHandler -> Autonomous Driving System  
+struct PacketIncomingPlatooningReq
+{
+  int8_t   action;          // 1: create; 2: join; 3: leave 
+  int32_t  platoonID;       // If the action is create, then initiating vehicle indicates the platoon to be created
+                            // If the action is join,   then initiating vehicle indicates the platoon to be joined
+                            // If the action is leave,  then initiating vehicle indicates the platoon to be leaved
+  int32_t  srcStationID;    // the initiating/source vehicle                       
+}
+
+
+// Channel name is "INCOMING_PLATOONING_RESULT"
+
+// MessageHandler -> Autonomous Driving System 
+
+struct PacketIncomingPlatooningRslt
+{
+  int32_t  srcStationID;
+  int8_t   resultCode;   // Success or Abort
+}
+
+
+
+// Channel name is "INCOMING_PLATOONING_RESPONSE"
+
+// MessageHandler -> Autonomous Driving System  
+struct PacketIncomingPlatooningRsp
+{
+  int32_t  platoonID;
+  int32_t  srcStationID;  // the vehicle whose answers Platooning Request
+  int8_t   resultCode;    // Accept or Decline
+}
+
+
+// Channel name is "OTHER_VEHICLES_STATUS_DATA"
+
+// This message contains the available status data of surrounding vehicles,
+// MessageHandler -> autonomous driving system
+
+struct PacketOtherVehicleData_list
+{
+    int16_t	          numOfVehicles;          // indicate the valid number of vehicle status data 
+    OtherVehicleData  vehicle[numOfVehicles]; // status data of surrounding vehicles
+}
+
+
+
+struct PlatooningAct
+{
+  const int8_t Create = 1;
+  const int8_t Join   = 2;
+  const int8_t Leave  = 3;
+}
+
+// Channel name is "PLATOONING_REQUEST"
+
+// Autonomous Driving System -> MessageHandler
+struct PacketPlatooningReq
+{
+  int8_t   action;          // 1: create; 2: join; 3: leave 
+  int32_t  platoonID;       // If the action is create, then initiating vehicle indicates the platoon to be created
+                            // If the action is join,   then initiating vehicle indicates the platoon to be joined
+                            // If the action is leave,  then initiating vehicle indicates the platoon to be leaved
+  int32_t  tgtStationID;    // If the action is create, then it indicates recipient vehicle
+                            // If the action is join or leave, then all vehicles in a platoon should be the recipients,
+                            // TgtStationID should be 0 in this case
+}
+
+
+// Channel name is "PLATOONING_INFO"
+
+// Autonomous Driving System -> MessageHandler
+
+struct PacketPlatooningInfo
+{
+  int32_t  platoonID;       // Global unique ID of the vehicle platoon, 0 means not in any platoon
+  int32_t  posInPlatoon;    // Position within the vehicle platoon
+}
+
+struct PlatooningRspCode
+{
+  const int8_t Accept  = 0;
+  const int8_t Decline = 1;
+}
+
+// Channel name is "PLATOONING_RESPONSE"
+
+// Autonomous Driving System -> MessageHandler
+
+struct PacketPlatooningRsp
+{
+  int32_t  platoonID;
+  int32_t  tgtStationID;  // to the platooning action initiator
+  int8_t   resultCode;    // Accept or Decline
+}
+
+
+struct PlatooningRslt
+{
+  const int8_t Success = 0;
+  const int8_t Abort   = 1;
+}
+
+// Channel name is "PLATOONING_RESULT_NOTIFY"
+// Autonomous Driving System -> MessageHandler
+
+struct PacketPlatooningRsltNotify
+{
+  int32_t  platoonID;    // target vehicle Platoon
+  int8_t   resultCode;   // Success or Abort
+}
