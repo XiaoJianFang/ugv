@@ -1,0 +1,8 @@
+station ID : 3
+station type : 5 -- passengerCar
+vehicle role : 0 -- default
+vehicle length : 47 -- UNIT 0.1m
+vehicle width : 18 -- UNIT 0.1m
+CAM generation interval : 50
+CAM reception interval : 50
+system info output level : 3
