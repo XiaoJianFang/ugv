@@ -54,6 +54,13 @@ struct PacketRawCan
 	Packet_CAN_DATA_FRAME dataFrames[1000];
 }
 
+struct PacketReckon
+{
+	float dX;
+	float dY;
+	float dThe;
+}
+
 struct PacketCanMsg
 {
 	float steer;
@@ -63,13 +70,7 @@ struct PacketCanMsg
 	float sonicx[24];
 	float sonicy[24];
 	int32_t rawdis[12];
-}
-
-struct PacketReckon
-{
-	float dX;
-	float dY;
-	float dThe;
+	PacketReckon reckon;
 }
 
 struct PacketGPSPATH
@@ -230,6 +231,27 @@ struct PacketVisualParkingArea
 	double time_cost;
 }
 
+struct PacketParkingArea
+{
+	int8_t id[20];
+	float score;
+	int8_t type; //0: vertical  1: parallel  2: others
+	int8_t statue; //0: tracking
+	int8_t vacant; //-1:unknown 0:no 1:yes
+	float width;
+	float length;
+	float angle;
+	Point2D center;
+	Point2D p[4];
+	float processingTime;
+}
+
+struct PacketParkingAreaVector
+{
+	int16_t num;
+	PacketParkingArea pklots[num];
+}
+
 struct PacketSlam
 {
     int16_t lengthOfPlan;
@@ -324,7 +346,6 @@ struct PacketHighResolutionMap
     float pointy[50];
     int16_t pointxstyle[50];
 }
-
 
 struct PacketImage
 {
