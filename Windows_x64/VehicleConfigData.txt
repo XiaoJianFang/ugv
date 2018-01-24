@@ -1,4 +1,4 @@
-station ID : 1
+station ID : 4
 station type : 5 -- passengerCar
 vehicle role : 0 -- default
 vehicle length : 47 -- UNIT 0.1m
