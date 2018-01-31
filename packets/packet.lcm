@@ -357,3 +357,13 @@ struct PacketImage
 	int64_t imgIndex;
 	byte fpath[500];
 }
+
+struct PacketVLP16RawVector
+{
+    int16_t  lengthOfPoints;
+	float    x[lengthOfPoints];
+	float    y[lengthOfPoints];
+	float    z[lengthOfPoints];
+	byte     id[lengthOfPoints];
+	byte     intensity[lengthOfPoints];
+}
