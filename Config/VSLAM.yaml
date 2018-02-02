@@ -1,0 +1,331 @@
+%YAML:1.0
+###############################MultiCam#########################################
+
+MutiCam.Num: 2
+
+
+##l
+MutiCam.fx_0: 184.5975667779716
+MutiCam.fy_0: 166.623258472434
+MutiCam.cx_0: 320.801643211377
+MutiCam.cy_0: 235.2424833836154
+
+
+MutiCam.k1_0: 0
+MutiCam.k2_0: 0
+MutiCam.p1_0: 0
+MutiCam.p2_0: 0
+#
+#Camera.k1_0: 0.171023
+#Camera.k2_0: -0.0230975
+#Camera.p1_0: 0.00876867
+#Camera.p2_0: -0.00324441
+
+
+##r
+MutiCam.fx_1: 183.7474237372729
+MutiCam.fy_1: 166.8051311689386
+MutiCam.cx_1: 312.3377850710111
+MutiCam.cy_1: 231.635531083943
+##
+#Camera.k1_1:  0.159295
+#Camera.k2_1:  -0.00122862
+#Camera.p1_1:  -0.00331595
+#Camera.p2_1:  -0.0025497
+#
+MutiCam.k1_1:  0   #0.159295
+MutiCam.k2_1:  0  #-0.00122862
+MutiCam.p1_1:  0  #-0.00331595
+MutiCam.p2_1:  0 #-0.0025497
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###f
+#Camera.fx_1: 190.9058736958517
+#Camera.fy_1: 172.456561202679
+#Camera.cx_1: 313.7321941202109
+#Camera.cy_1: 240.7658190701108
+#
+#Camera.k1_1: 0
+#Camera.k2_1: 0
+#Camera.p1_1: 0
+#Camera.p2_1: 0
+
+#Camera.k1_1: 0.164971
+#Camera.k2_1: -0.00801794
+#Camera.p1_1: -0.00335478
+#Camera.p2_1: -0.00169952
+#
+#
+###b
+#Camera.fx_2: 190.9058736958517
+#Camera.fy_2: 172.456561202679
+#Camera.cx_2: 313.7321941202109
+#Camera.cy_2: 240.7658190701108
+#
+#
+#Camera.k1_2: 0.164971
+#Camera.k2_2: -0.00801794
+#Camera.p1_2: -0.00335478
+#Camera.p2_2: -0.00169952
+#
+#
+
+
+
+
+
+
+
+
+
+#######################################
+# Whether Run the ORB-SLAM2 System Using the Exsiting Map File (0 for no , 1 for yes).
+
+is_ReuseMap: 1
+
+# the Exsiting Map File Path (if the above item is 0, this is unnessesary)
+
+ReuseMapPath: "Ruku.bin"
+
+imutopic: "/imu0"
+imagetopic: "/cam0/image_raw"
+
+
+# Timestamp shift. Timage = Timu + image_delay
+Camera.delaytoimu: 0
+
+# acc=acc*9.8, if below is 1
+IMU.multiplyG: 0
+
+# camera-imu frame transformation, Pi = Tic * Pc
+#Camera.Tbc:
+# [0.0148655429818, -0.999880929698, 0.00414029679422, -0.0216401454975,
+#  0.999557249008, 0.0149672133247, 0.025715529948, -0.064676986768,
+#  -0.0257744366974, 0.00375618835797, 0.999660727178, 0.00981073058949,
+#  0.0, 0.0, 0.0, 1.0]
+
+#Camera.Tbc:
+#	[1.0,0.0,0.0,0.0,
+#	0.0,1.0,0.0,0.0,
+#	0.0,0.0,1.0,2.305,
+#	0.0,0.0,0.0,1.0]
+
+# e50
+#Camera.Tbc:
+# [1.0, 0.0, 0.0, 0.23,
+#  0.0, 1.0, 0.0, 0.0,
+#  0.0, 0.0, 1.0, 1.49,
+#  0.0, 0.0, 0.0, 1.0]
+
+#
+# right
+#Camera.Tbc:
+# [ -0.2926234935, -0.6831646172 , 0.6690721911, 0.7991932544,
+#  0.008344073075, 0.6978487119, 0.7161965873, -0.9561670712,
+#   -0.9561913341, 0.2151587347, -0.1985065525, 1.627708855,
+#  0.0, 0.0, 0.0, 1.0]
+
+
+## front
+#Camera.Tbc:
+# [ 0.9997943473, 0.01875036253 , 0.007725740207, -0.006942829387,
+#  -0.01994892112, 0.8408084261, 0.5409650923, -0.569183389,
+#   0.003647424132, -0.5410079616, 0.8410095611, 2.961732951,
+#  0.0, 0.0, 0.0, 1.0]
+
+Camera.Tbc:
+ [1.0, 0.0, 0.0, -0.174,
+  0.0, 0.99863, -0.05234, 0.0,
+  0.0, 0.05234, 0.99863, 1.75,
+  0.0, 0.0, 0.0, 1.0]
+
+#
+#0.19
+#1.985
+#2.305
+#1.47
+# Local Window size
+LocalMapping.LocalWindowSize: 10
+
+#--------------------------------------------------------------------------------------------
+# Camera Parameters. Adjust them!
+#--------------------------------------------------------------------------------------------
+
+# Camera calibration and distortion parameters (OpenCV) 
+
+
+#logitch
+#Camera.fx: 8.1944415536813494e+002
+#Camera.fy: 8.2166117644778842e+002
+#Camera.cx: 3.2148319983027363e+002
+#Camera.cy: 2.4221882782329632e+002
+#
+#Camera.k1: -4.5029185266273461e-002
+#Camera.k2: 1.6686247667844822e+000
+#Camera.p1: -6.6748071824293184e-004
+#Camera.p2: -7.3402899101209359e-003
+#fisheye
+#Camera.fx: 3.3121432922540322e+002
+#Camera.fy: 3.3106131855157281e+002
+#Camera.cx: 3.1207738880365139e+002
+#Camera.cy: 2.2308722796765761e+002
+#
+##ids
+Camera.fx: 3.3953465908358629e+02
+Camera.fy: 3.3974958654868493e+02
+Camera.cx: 3.2621064988064376e+02
+Camera.cy: 2.3435924915637651e+02
+
+
+Camera.k1: -6.8341747088112498e-02
+Camera.k2: 1.3163854312954398e-01
+Camera.p1: 1.8756170473163453e-03
+Camera.p2: 1.2524782503311779e-03
+
+
+####f
+#Camera.fx: 190.9058736958517
+#Camera.fy: 172.456561202679
+#Camera.cx: 313.7321941202109
+#Camera.cy: 240.7658190701108
+#
+##Camera.fx: 95.45293684792585
+##Camera.fy: 68.9826244810716
+##Camera.cx: 313.7321941202109
+##Camera.cy: 240.7658190701108
+##
+#Camera.k1: 0
+#Camera.k2: 0
+#Camera.p1: 0
+#Camera.p2: 0
+
+#Camera.k1: 0.164971
+#Camera.k2: -0.00801794
+#Camera.p1: -0.00335478
+#Camera.p2: -0.00169952
+#
+#
+###b
+#Camera.fx: 190.9058736958517
+#Camera.fy: 172.456561202679
+#Camera.cx: 313.7321941202109
+#Camera.cy: 240.7658190701108
+#
+#
+#Camera.k1: 0.164971
+#Camera.k2: -0.00801794
+#Camera.p1: -0.00335478
+#Camera.p2: -0.00169952
+#
+#
+##l
+#Camera.fx: 184.5975667779716
+#Camera.fy: 166.623258472434
+#Camera.cx: 320.801643211377
+#Camera.cy: 235.2424833836154
+#
+#
+#Camera.k1: 0
+#Camera.k2: 0
+#Camera.p1: 0
+#Camera.p2: 0
+#
+#Camera.k1: 0.171023
+#Camera.k2: -0.0230975
+#Camera.p1: 0.00876867
+#Camera.p2: -0.00324441
+
+
+#r
+#Camera.fx: 183.7474237372729
+#Camera.fy: 166.8051311689386
+#Camera.cx: 312.3377850710111
+#Camera.cy: 231.635531083943
+
+#Camera.fx: 91.87371186863645
+#Camera.fy: 66.72205246757544
+#Camera.cx: 312.3377850710111
+#Camera.cy: 231.635531083943
+#
+#
+#Camera.k1:  0.159295
+#Camera.k2:  -0.00122862
+#Camera.p1:  -0.00331595
+#Camera.p2:  -0.0025497
+
+#Camera.k1:  0   #0.159295
+#Camera.k2:  0  #-0.00122862
+#Camera.p1:  0  #-0.00331595
+#Camera.p2:  0 #-0.0025497
+
+
+
+
+Camera.width: 640
+Camera.height: 480
+
+# Camera frames per second 
+Camera.fps: 15.0
+
+# IR projector baseline times fx (aprox.)
+Camera.bf: 40.0
+
+# Color order of the images (0: BGR, 1: RGB. It is ignored if images are grayscale)
+Camera.RGB: 1
+
+# Close/Far threshold. Baseline times.
+ThDepth: 40.0
+
+# Deptmap values factor
+DepthMapFactor: 1.0
+
+#--------------------------------------------------------------------------------------------
+# ORB Parameters
+#--------------------------------------------------------------------------------------------
+
+# ORB Extractor: Number of features per image
+ORBextractor.nFeatures: 1000
+
+# ORB Extractor: Scale factor between levels in the scale pyramid 
+ORBextractor.scaleFactor: 1.2
+
+# ORB Extractor: Number of levels in the scale pyramid 
+ORBextractor.nLevels: 8
+
+# ORB Extractor: Fast threshold
+# Image is divided in a grid. At each cell FAST are extracted imposing a minimum response.
+# Firstly we impose iniThFAST. If no corners are detected we impose a lower value minThFAST
+# You can lower these values if your images have low contrast   
+ORBextractor.iniThFAST: 20
+ORBextractor.minThFAST: 7
+
+#--------------------------------------------------------------------------------------------
+# Viewer Parameters
+#--------------------------------------------------------------------------------------------
+Viewer.KeyFrameSize: 0.50 #0.3
+#Viewer.KeyFrameSize: 0.03
+Viewer.KeyFrameLineWidth: 1
+Viewer.GraphLineWidth: 0.9
+Viewer.PointSize: 2
+Viewer.CameraSize: 0.70 #0.4
+#Viewer.CameraSize: 0.04
+
+Viewer.CameraLineWidth: 3
+Viewer.ViewpointX: 0
+Viewer.ViewpointY: -0.7
+Viewer.ViewpointZ: -1.8
+Viewer.ViewpointF: 500
+
