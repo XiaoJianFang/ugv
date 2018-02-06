@@ -7,9 +7,9 @@
 "enable_avoidance":0,
 "display_enabled":true,
 "predict_time_interval":0.1,
-"predict_num":50,
+"predict_num":40,
 "min_speed_threshold":2.0,
-"expected_time":7.0,
+"expected_time":6.0,
 "max_acceleration":3.0,
 "axis_dis":2.65,
 "tyre_to_steer":16.5,
@@ -26,5 +26,6 @@
 "A_lat":31.29,
 "A_lon":121.2,
 "B_lat":31.3,
-"B_lon":121.3
+"B_lon":121.3,
+"enable_predict_stop":true
 }
