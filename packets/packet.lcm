@@ -288,7 +288,8 @@ struct PacketSlam
 
 struct PacketSpeedRequest
 {
-    int32_t speedRequest;
+    int8_t gearPos;
+	int32_t speedRequest;
     int32_t mapFlag;
 }
 
