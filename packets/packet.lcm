@@ -65,6 +65,7 @@ struct PacketCanMsg
 {
 	float steer;
 	float speed;
+	int8_t gearPos;
     int32_t EPB_status;
     int32_t EHB_Pressure;
 	float sonicx[24];
@@ -307,7 +308,7 @@ struct PacketControl
 	int32_t SteerAcc;
 	float Speed; 
     float SpeedAcc;
-	int32_t Gears;
+	int8_t gearPos;
 	int8_t Estop;
 }
 
@@ -316,6 +317,7 @@ struct PacketVehicleInfo
 	float speed;
 	float wz;
 	int16_t steerAngle;
+	int8_t gearPos;
 }
 
 struct PacketMap
