@@ -63,11 +63,16 @@ struct PacketReckon
 
 struct PacketCanMsg
 {
+	int8_t vehicleState;
 	float steer;
 	float speed;
 	int8_t gearPos;
     int32_t EPB_status;
     int32_t EHB_Pressure;
+	int32_t flWheelSpeed;
+	int32_t frWheelSpeed;
+	int32_t rlWheelSpeed;
+	int32_t rrWheelSpeed;
 	float sonicx[24];
 	float sonicy[24];
 	int32_t rawdis[12];
