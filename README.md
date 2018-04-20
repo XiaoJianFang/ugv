@@ -8,4 +8,4 @@
   
   
   二.依赖库
-  opencv lcm 
+  opencv lcm test
