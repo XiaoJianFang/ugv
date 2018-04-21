@@ -9,4 +9,4 @@
   
   
   二.依赖库
-  libopencv*.so liblcm.so libCommonApi.so libConfig.so libGeoBasic.so libIDSDrive.so libVisualization.so libcontrolcan.so libPangolin.so libCholmod.so libBoost.so libg2o.so libDBoW2.so
+  libopencv*.so liblcm.so libCommonApi.so libConfig.so libGeoBasic.so libIDSDrive.so libVisualization.so libcontrolcan.so libPangolin.so libCholmod.so libBoost.so libg2o.so libDBoW2.so libgsl
