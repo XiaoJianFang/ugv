@@ -1,0 +1,2 @@
+#GPS Mode=0; SLAMPOS Mode=1;
+0
