@@ -1,0 +1,4 @@
+--camId=2
+--cameraName=RTCM
+--configFile=rightCamera.ini
+--saveImages=false
