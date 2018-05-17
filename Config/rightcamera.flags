@@ -1,4 +1,5 @@
---camId=2
---cameraName=RTCM
+--camId=1
+--channelName=RightCamera
 --configFile=rightCamera.ini
---saveImages=false
+--saveImg=true
+--savingFolderName=RightCameraImages
