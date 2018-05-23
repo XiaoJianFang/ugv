@@ -1,0 +1,382 @@
+struct Point2D
+{
+	float x;
+	float y;
+}
+
+struct BoxPt
+{
+	Point2D p0;
+	Point2D p1;
+	Point2D p2;
+	Point2D p3;
+}
+
+struct PacketGPS
+{
+	float accuracy;
+	double lat;
+	double lon;
+	double heading;
+	float speed;            
+	float vx;
+	float vy;
+	float wz;
+	double referenceTime;   
+	double longitudinalAcceleration;
+	double lateralAcceleration;
+}
+
+struct PacketSlamPos
+{
+	float accuracy;
+	float x;
+	float y;
+	float z;
+	float heading;
+	float speed;            
+	float vx;
+	float vy;
+	float wz;
+}
+
+struct Packet_CAN_DATA_FRAME
+{
+	int32_t deviceID;
+	int32_t ID;
+	int8_t channelID;
+	byte frame[8];
+}
+
+struct PacketRawCan
+{
+	int16_t validNum;
+	Packet_CAN_DATA_FRAME dataFrames[1000];
+}
+
+struct PacketReckon
+{
+	float dX;
+	float dY;
+	float dThe;
+}
+
+struct PacketCanMsg
+{
+	int8_t vehicleState;
+	float steer;
+	float speed;
+	int8_t gearPos;
+    int32_t EPB_status;
+    int32_t EHB_Pressure;
+	int32_t flWheelSpeed;
+	int32_t frWheelSpeed;
+	int32_t rlWheelSpeed;
+	int32_t rrWheelSpeed;
+	float sonicx[24];
+	float sonicy[24];
+	int32_t rawdis[12];
+	PacketReckon reckon;
+}
+
+struct PacketGPSPATH
+{
+	float gpsx[250];
+	float gpsy[250];
+	float curve[250];
+	int8_t MapFlag[250];
+}
+
+struct PacketVELD
+{
+	byte type[4];
+	float Lane1x[40];
+	float Lane2x[40];
+	float Lane3x[40];
+	float Lane4x[40];
+}
+
+struct PacketRoad
+{
+	int64_t imgIndex;
+	int16_t leftx[500];
+	int16_t lefty[500];
+	int16_t rightx[500];
+	int16_t righty[500];
+	int16_t crossdistance;
+}
+
+struct PacketTraffic
+{
+	int64_t imgIndex;
+	int16_t trafficlight;
+}
+
+struct PacketStopLine
+{
+	int64_t imgIndex;
+	int16_t stopline;
+}
+
+struct PacketMobileEye
+{
+	byte Num_obs; 
+	byte left_close_rang_cut_in;
+	byte right_close_rang_cut_in;
+	byte Close_car;	
+	byte Go_Flag;
+	byte ID[13];	
+	byte Type[13];	
+	float Pos_X[13];			
+	float Pos_Y[13];			
+	float Rel_Vel_Y[13];
+	float Accel_Y[13];		
+	float Length[13];			
+	float Width[13];
+	float Angle_Rate[13];
+	float Angle[13];
+	byte Valid[13];
+	byte Status[13];
+	byte Brake_Lights[13];
+	byte Cut_in_out[13];
+	byte Bliker[13];			
+	float Age[13];	
+	byte CIPV_flag[13];
+	byte Replaced[13];		
+}
+
+struct PacketMobileEyeVector
+{
+	int8_t Num_obs; 
+	byte left_close_rang_cut_in;
+	byte right_close_rang_cut_in;
+	byte Close_car;	
+	byte Go_Flag;
+	byte ID[Num_obs];	
+	byte Type[Num_obs];	
+	float Pos_X[Num_obs];			
+	float Pos_Y[Num_obs];			
+	float Rel_Vel_Y[Num_obs];
+	float Accel_Y[Num_obs];		
+	float Length[Num_obs];			
+	float Width[Num_obs];
+	float Angle_Rate[Num_obs];
+	float Angle[Num_obs];
+	byte Valid[Num_obs];
+	byte Status[Num_obs];
+	byte Brake_Lights[Num_obs];
+	byte Cut_in_out[Num_obs];
+	byte Bliker[Num_obs];			
+	byte Age[Num_obs];	
+	byte CIPV_flag[Num_obs];
+	byte Replaced[Num_obs];		
+}
+
+struct PacketIbeo
+{
+    int8_t index;
+	float ibx[50];
+	float iby[50];
+	float ibw[50];
+	float ibl[50];
+	float ibvx[50];
+	float ibvy[50];
+	float ibvabx[50];
+	float ibvaby[50];
+	int16_t ibcontournum[50];
+	float ibcontourx[3000];
+	float ibcontoury[3000];
+}
+
+struct PacketIbeoVector
+{
+    int8_t index;
+	int16_t lengthOfObject;
+	int16_t lengthOfContour;
+	float ibx[lengthOfObject];
+	float iby[lengthOfObject];
+	float ibw[lengthOfObject];
+	float ibl[lengthOfObject];
+	float ibvx[lengthOfObject];
+	float ibvy[lengthOfObject];
+	float ibvabx[lengthOfObject];
+	float ibvaby[lengthOfObject];
+	int16_t ibcontournum[lengthOfObject];
+	float ibcontourx[lengthOfContour];
+	float ibcontoury[lengthOfContour];
+}
+
+struct PacketRadar
+{
+	float frontx[64];
+	float fronty[64];
+	float frontvx[64];
+	float frontvy[64];
+	float frontw[64];
+	byte oncoming[64];
+	byte rangemode[64];
+	float leftx[64];
+	float lefty[64];
+	float leftvy[64];
+	float rightx[64];
+	float righty[64];
+	float rightvy[64];
+}
+
+struct PacketSonic
+{
+	BoxPt bpt[10];
+}
+
+struct PacketVisualParkingArea
+{
+	Point2D p0;
+	Point2D p1;
+	Point2D p2;
+	Point2D p3;
+	double time_cost;
+}
+
+struct PacketParkingArea
+{
+	int8_t id[20];
+	float score;
+	int8_t type; //0: vertical  1: parallel  2: others
+	int8_t statue; //0: tracking
+	int8_t vacant; //-1:unknown 0:no 1:yes
+	float width;
+	float length;
+	float angle;
+	Point2D center;
+	Point2D p[4];
+	float processingTime;
+}
+
+struct PacketParkingAreaVector
+{
+	int16_t num;
+	PacketParkingArea pklots[num];
+}
+
+struct PacketSlam
+{
+    int16_t lengthOfPlan;
+	float lane1x[40];
+	float lane1y[40];
+	float lane2x[40];
+	float lane2y[40];
+	float lane3x[40];
+	float lane3y[40];
+	float lane4x[40];
+	float lane4y[40];
+	float rblx[500];
+	float rbly[500];
+	float rbrx[500];
+	float rbry[500];
+	float ibx[3000];
+	float iby[3000];
+	float ibw[3000];
+	float ibl[3000];
+	float ibvx[3000];
+	float ibvy[3000];
+	float ibvabx[3000];
+	float ibvaby[3000];
+	int16_t ibcontournum[3000];
+	float ibcontourx[3000];
+	float ibcontoury[3000];
+	float sonicx[1];
+	float sonicy[1];
+	float stopLaneDis;
+    float pathPoints[lengthOfPlan];
+    float pathPointx[lengthOfPlan];
+    float pathPointy[lengthOfPlan];
+}
+
+struct PacketSpeedRequest
+{
+    int8_t gearPos;
+	int32_t speedRequest;
+    int32_t mapFlag;
+}
+
+struct PacketPlan
+{
+    int16_t lengthOfPlan;
+    float pathPoints[lengthOfPlan];
+    float pathPointx[lengthOfPlan];
+    float pathPointy[lengthOfPlan];
+}
+
+struct PacketControl
+{
+	int32_t SteeringWheel;
+	int32_t SteerAcc;
+	float Speed; 
+    float SpeedAcc;
+	int8_t gearPos;
+	int8_t Estop;
+}
+
+struct PacketVehicleInfo
+{
+	float speed;
+	float wz;
+	int16_t steerAngle;
+	int8_t gearPos;
+}
+
+struct PacketMap
+{
+	double lat[100000];
+	double lon[100000];
+	float heading[100000];
+	float speed[100000];
+	byte state[100000];
+}
+
+struct PacketHighResolutionMap
+{
+	float gpsx[250];		
+	float gpsy[250];		
+	float curve[250];		
+	byte MapFlag[250];	
+	float lane1x[40];
+	float lane1y[40];
+	float lane2x[40];
+	float lane2y[40];
+	float lane3x[40];
+	float lane3y[40];
+	float lane4x[40];
+	float lane4y[40];
+	float ibcontourx[3000];
+	float ibcontoury[3000];
+    float pointx[50];
+    float pointy[50];
+    int16_t pointxstyle[50];
+}
+
+struct PacketImage
+{
+	int16_t rows;
+	int16_t cols;
+	int16_t channels;
+	int64_t totalByte;
+	byte data[totalByte];
+	int64_t imgIndex;
+	byte fpath[500];
+}
+
+struct pointVelo
+{
+	float x;
+	float y;
+	float z;
+	float r;
+	int8_t  id;
+}
+
+struct PacketVLP16RawVector
+{
+    int16_t  lengthOfPoints;
+     pointVelo    points[lengthOfPoints];
+}
