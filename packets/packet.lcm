@@ -366,12 +366,17 @@ struct PacketImage
 	byte fpath[500];
 }
 
+struct PointVelo
+{
+	float x;
+	float y;
+	float z;
+	float r;
+	int8_t  id;
+}
+
 struct PacketVLP16RawVector
 {
-    int16_t  lengthOfPoints;
-	float    x[lengthOfPoints];
-	float    y[lengthOfPoints];
-	float    z[lengthOfPoints];
-	byte     id[lengthOfPoints];
-	byte     intensity[lengthOfPoints];
+    int16_t lengthOfPoints;
+    PointVelo points[lengthOfPoints];
 }
