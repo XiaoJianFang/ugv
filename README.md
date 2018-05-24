@@ -11,4 +11,8 @@
   二.依赖库
   libopencv*.so liblcm.so libCommonApi.so libConfig.so libGeoBasic.so libIDSDrive.so libVisualization.so libcontrolcan.so libPangolin.so libCholmod.so libBoost.so libg2o.so libDBoW2.so libgsl libgflags libgoogle-glog
 
-  ./OpenCamera_ubuntu_x86_64 --flagfile=rightcamera.flags
+  ./OpenCamera_ubuntu_x86_64 --flagfile=rightcamera.flags 
+  
+  
+  
+  
