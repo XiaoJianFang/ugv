@@ -377,6 +377,6 @@ struct PointVelo
 
 struct PacketVLP16RawVector
 {
-    int16_t lengthOfPoints;
+    int32_t lengthOfPoints;
     PointVelo points[lengthOfPoints];
 }
