@@ -95,10 +95,10 @@ MutiCam.p2_1:  0 #-0.0025497
 # Whether Run the ORB-SLAM2 System Using the Exsiting Map File (0 for no , 1 for yes).
 
 is_ReuseMap: 1
-
+isSimulator: 0
 # the Exsiting Map File Path (if the above item is 0, this is unnessesary)
 
-ReuseMapPath: "Ruku.bin"
+ReuseMapPath: "./VSLAM_Relatives/Ruku.bin"
 
 imutopic: "/imu0"
 imagetopic: "/cam0/image_raw"
@@ -146,10 +146,16 @@ IMU.multiplyG: 0
 #   0.003647424132, -0.5410079616, 0.8410095611, 2.961732951,
 #  0.0, 0.0, 0.0, 1.0]
 
+#Camera.Tbc:
+# [1.0, 0.0, 0.0, -0.174,
+#  0.0, 0.99863, -0.05234, 0.0,
+#  0.0, 0.05234, 0.99863, 1.75,
+#  0.0, 0.0, 0.0, 1.0]
+
 Camera.Tbc:
- [1.0, 0.0, 0.0, -0.174,
-  0.0, 0.99863, -0.05234, 0.0,
-  0.0, 0.05234, 0.99863, 1.75,
+ [0.999748 , -0.0138, -0.0177317, -0.16,
+  0.0131981, 0.999347, -0.0336249, 0.0,
+  0.0181841, 0.0333824, 0.999277, 1.89113,
   0.0, 0.0, 0.0, 1.0]
 
 #
@@ -184,16 +190,28 @@ LocalMapping.LocalWindowSize: 10
 #Camera.cy: 2.2308722796765761e+002
 #
 ##ids
-Camera.fx: 3.3953465908358629e+02
-Camera.fy: 3.3974958654868493e+02
-Camera.cx: 3.2621064988064376e+02
-Camera.cy: 2.3435924915637651e+02
+#Camera.fx: 3.3953465908358629e+02
+#Camera.fy: 3.3974958654868493e+02
+#Camera.cx: 3.2621064988064376e+02
+#Camera.cy: 2.3435924915637651e+02
+#
+#
+#Camera.k1: -6.8341747088112498e-02
+#Camera.k2: 1.3163854312954398e-01
+#Camera.p1: 1.8756170473163453e-03
+#Camera.p2: 1.2524782503311779e-03
 
 
-Camera.k1: -6.8341747088112498e-02
-Camera.k2: 1.3163854312954398e-01
-Camera.p1: 1.8756170473163453e-03
-Camera.p2: 1.2524782503311779e-03
+Camera.fx: 343.169585
+Camera.fy: 344.619087
+Camera.cx: 321.358181
+Camera.cy: 231.813611
+
+
+Camera.k1: -0.024679
+Camera.k2: 0.039875
+Camera.p1: 0.002873
+Camera.p2: 0.0002
 
 
 ####f
@@ -320,7 +338,7 @@ Viewer.KeyFrameSize: 0.50 #0.3
 Viewer.KeyFrameLineWidth: 1
 Viewer.GraphLineWidth: 0.9
 Viewer.PointSize: 2
-Viewer.CameraSize: 0.70 #0.4
+Viewer.CameraSize: 2 #0.7
 #Viewer.CameraSize: 0.04
 
 Viewer.CameraLineWidth: 3
