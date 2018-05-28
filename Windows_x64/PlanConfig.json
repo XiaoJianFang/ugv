@@ -1,10 +1,10 @@
 {
 "Vehicle_ID":1,
 "_comment":"log_level::trace=0,debug = 1,info = 2,warn = 3,err = 4,critical = 5,off = 6",
-"log_level":2,
-"frequency":999,
+"log_level":3,
+"frequency":99,
 "plannner_type":1,
-"enable_avoidance":1,
+"enable_avoidance":0,
 "display_enabled":true,
 "predict_time_interval":0.1,
 "predict_num":50,
@@ -14,7 +14,7 @@
 "axis_dis":2.65,
 "tyre_to_steer":16.5,
 "tyre_to_steer_right":16.4,
-"V_width_half":1.2,
+"V_width_half":0.9,
 "V_front":4.2,
 "V_back":-1.0,
 "lon_safe_margin":0.5,
@@ -31,5 +31,9 @@
 "C_lon":121.2032776,
 "my2B_lim":70.0,
 "my2C_lim":30.0,
-"enable_predict_stop":true
+"enable_predict_stop":true,
+"_5G_Event":false,
+"Fix_Speed_Enable":1,
+"Fix_Speed":20,
+"Data_Collect":0
 }
