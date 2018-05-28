@@ -1,0 +1,2 @@
+#gpsMode=0;slamposMode=1
+1

@@ -1,0 +1,8 @@
+!wide "./data/lidardriver.txt"
+1800 
+!h height
+1000
+!l height
+-100
+!period
+10
