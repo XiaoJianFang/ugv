@@ -40,6 +40,19 @@ struct PacketSlamPos
 	float wz;
 }
 
+struct PacketFusionPos
+{
+	float accuracy;
+	float x;
+	float y;
+	float z;
+	float heading;
+	float speed;            
+	float vx;
+	float vy;
+	float wz;
+}
+
 struct Packet_CAN_DATA_FRAME
 {
 	int32_t deviceID;
@@ -377,6 +390,6 @@ struct PointVelo
 
 struct PacketVLP16RawVector
 {
-    int32_t lengthOfPoints;
+    int16_t lengthOfPoints;
     PointVelo points[lengthOfPoints];
 }
