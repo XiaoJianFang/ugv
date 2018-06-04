@@ -18,7 +18,7 @@ struct BBox2D
 	float y;
 	float w;
 	float h;
-	int8_t class;
+	int8_t c;
 }
 
 struct BBox3D
@@ -32,7 +32,7 @@ struct BBox3D
 	float yaw;
 	float pitch;
 	float roll;
-	int8_t class;
+	int8_t c;
 }
 
 struct PacketObjBox2D
