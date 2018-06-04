@@ -12,6 +12,43 @@ struct BoxPt
 	Point2D p3;
 }
 
+struct BBox2D
+{
+	float x;
+	float y;
+	float w;
+	float h;
+	int8_t class;
+}
+
+struct BBox3D
+{
+	float x;
+	float y;
+	float z;
+	float w;
+	float h;
+	float d;
+	float yaw;
+	float pitch;
+	float roll;
+	int8_t class;
+}
+
+struct PacketObjBox2D
+{
+	int8_t cameraId;
+	int16_t numOfObj;
+	BBox2D bbox2d[numOfObj];
+}
+
+struct PacketObjBox3D
+{
+	int8_t sensorId;
+	int16_t numOfObj;
+	BBox3D bbox3d[numOfObj];
+}
+
 struct PacketGPS
 {
 	float accuracy;
@@ -107,6 +144,19 @@ struct PacketVELD
 	float Lane2x[40];
 	float Lane3x[40];
 	float Lane4x[40];
+}
+
+struct PacketVELDVector
+{
+	byte type[4];
+	int8_t len1;
+	int8_t len2;
+	int8_t len3;
+	int8_t len4;
+	float Lane1x[len1];
+	float Lane2x[len2];
+	float Lane3x[len3];
+	float Lane4x[len4];
 }
 
 struct PacketRoad
