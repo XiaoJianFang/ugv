@@ -14,6 +14,7 @@ ps -ef | grep GPS982 | grep -v grep | cut -c 9-15 | xargs kill -s 9
 
 ps -ef | grep LidarDriverVector | grep -v grep | cut -c 9-15 | xargs kill -s 9
 
+ps -ef | grep RSDS_MBE | grep -v grep | cut -c 9-15 | xargs kill -s 9
  # ps -ef | grep VSLAM | grep -v grep | cut -c 9-15 | xargs kill -s 9
 
 
