@@ -325,25 +325,30 @@ struct PacketParkingAreaVector
 	PacketParkingArea pklots[num];
 }
 
+
 struct PacketFusion
 {
-    int16_t lengthOfPlan;
-	int16_t lengthOfLane;
+	int16_t lengthOfLane1;
+	int16_t lengthOfLane2;
+	int16_t lengthOfLane3;
+	int16_t lengthOfLane4;
+	int16_t lengthOfRoadBoundLeft;
+	int16_t lengthOfRoadBoundRight;
 	int16_t lengthOfObj;
-	int16_t lengthOfContour;
-	int16_t lengthOfRoadBound;
-	float lane1x[lengthOfLane];
-	float lane1y[lengthOfLane];
-	float lane2x[lengthOfLane];
-	float lane2y[lengthOfLane];
-	float lane3x[lengthOfLane];
-	float lane3y[lengthOfLane];
-	float lane4x[lengthOfLane];
-	float lane4y[lengthOfLane];
-	float rblx[500];
-	float rbly[500];
-	float rbrx[500];
-	float rbry[500];
+	int16_t lengthOfContour;	
+	int16_t lengthOfPlan;
+	float lane1x[lengthOfLane1];
+	float lane1y[lengthOfLane1];
+	float lane2x[lengthOfLane2];
+	float lane2y[lengthOfLane2];
+	float lane3x[lengthOfLane3];
+	float lane3y[lengthOfLane3];
+	float lane4x[lengthOfLane4];
+	float lane4y[lengthOfLane4];
+	float rblx[lengthOfRoadBound];
+	float rbly[lengthOfRoadBound];
+	float rbrx[lengthOfRoadBound];
+	float rbry[lengthOfRoadBound];
 	float ibx[lengthOfObj];
 	float iby[lengthOfObj];
 	float ibw[lengthOfObj];
