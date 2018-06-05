@@ -335,6 +335,7 @@ struct PacketFusion
 	int16_t lengthOfRoadBoundRight;
 	int16_t lengthOfObj;
 	int16_t lengthOfContour;	
+	int16_t lengthOfVlp16;
 	int16_t lengthOfPlan;
 	float lane1x[lengthOfLane1];
 	float lane1y[lengthOfLane1];
@@ -359,6 +360,7 @@ struct PacketFusion
 	int16_t ibcontournum[lengthOfObj];
 	float ibcontourx[lengthOfContour];
 	float ibcontoury[lengthOfContour];
+	PointVelo points[lengthOfVlp16];
 	float sonicx[1];
 	float sonicy[1];
 	float stopLaneDis;
