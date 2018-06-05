@@ -292,6 +292,24 @@ struct PacketRadar
 	float rightvy[64];
 }
 
+struct PacketRadarVector
+{
+	int8_t length;
+	float frontx[length];
+	float fronty[length];
+	float frontvx[length];
+	float frontvy[length];
+	float frontw[length];
+	byte oncoming[length];
+	byte rangemode[length];
+	float leftx[length];
+	float lefty[length];
+	float leftvy[length];
+	float rightx[length];
+	float righty[length];
+	float rightvy[length];
+}
+
 struct PacketSonic
 {
 	BoxPt bpt[10];
