@@ -1,0 +1,23 @@
+1.从零开始建图
+	将VSLAM.yaml中将is_ReuseMap设成0，打开GPS，打开Can_interface，打开VSLAM,一定要从室外开始建图,建图过程中尽量不要开特别快，室外15km以内，室内转弯的时候5km以内，当图中特征点较少时，一定要慢下来。
+	室内建图过程中一定要建成一个完成的圈，完成闭环。
+	
+	入库和出库建图的时候尽量选择下午阳光弱的情况下，出库和入库的刹那尽量慢，如果入库的时候特征点丢失，最好重新建图。
+	
+	建图成功之后，点击savemap，会在目录中生成Slam_latest_map.bin，每存完一个，修改一下名字例如Slam_latest_map1.bin，保险起见存三次以上，并将其拷贝到VSLAM_Relatives目录下，改名字为Ruku.bin。
+
+2.打补丁模式
+	将VSLAM.yaml中is_ReuseMap设成1，系统定位成功之后，点击patchmode即可，走过定位容易丢失的地方，打完补丁如果走过的轨迹明显不对，需要关掉程序重来。
+	成功之后，点击savemap，同样的，最好存三次以上，并拷贝至VSLAM_Relatives目录下，改名字为Ruku.bin
+
+3.纯定位模式
+	将VSLAM.yaml中is_ReuseMap设成1；
+4.采路径
+	开始采路径点一下BeginSaveTrajectory,结束时再点一下．加标志位的时候，按钮Di mian为１００，Dixia为１０１，shang po和xia po都是１２２.存下来的文件在VSLAM_relatives里的map/trajectory里，按照时间命名的.
+5.是否使用ＧＰＳ
+	勾上UseGPS是使用，勾掉不使用
+6.Following camera
+	勾上following，勾掉不following
+7.VSLAM.yaml中可以修改Threhold阈值，目前是0.055，代表着ＧＰＳ精度大于这个值则抛弃ＧＰＳ
+
+8.默认的地图是SlamPosMap.txt,如果想跑大地图的话,将SlamPosMapBig.txt改名字,并将原来的地图换名字,例如在后面加一个small(SlamPosMapSmall.txt)
