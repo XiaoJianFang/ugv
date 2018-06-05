@@ -13,6 +13,8 @@
 
   ./OpenCamera_ubuntu_x86_64 --flagfile=rightcamera.flags 
   
+  检车车道线要运行./RSDS_MBE,注意检查车辆ＯＢＤ的线是否接上，没接上的话车道线会异常
+  
   
   
   
