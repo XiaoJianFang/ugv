@@ -18,6 +18,7 @@ struct BBox2D
 	float y;
 	float w;
 	float h;
+	int16_t cid;
 	string c;
 }
 
@@ -32,6 +33,7 @@ struct BBox3D
 	float yaw;
 	float pitch;
 	float roll;
+	int16_t cid;
 	string c;
 }
 
