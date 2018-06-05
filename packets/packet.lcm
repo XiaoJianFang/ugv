@@ -325,7 +325,6 @@ struct PacketParkingAreaVector
 	PacketParkingArea pklots[num];
 }
 
-
 struct PacketFusion
 {
 	int16_t lengthOfLane1;
