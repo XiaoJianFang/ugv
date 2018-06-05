@@ -325,32 +325,36 @@ struct PacketParkingAreaVector
 	PacketParkingArea pklots[num];
 }
 
-struct PacketSlam
+struct PacketFusion
 {
     int16_t lengthOfPlan;
-	float lane1x[40];
-	float lane1y[40];
-	float lane2x[40];
-	float lane2y[40];
-	float lane3x[40];
-	float lane3y[40];
-	float lane4x[40];
-	float lane4y[40];
+	int16_t lengthOfLane;
+	int16_t lengthOfObj;
+	int16_t lengthOfContour;
+	int16_t lengthOfRoadBound;
+	float lane1x[lengthOfLane];
+	float lane1y[lengthOfLane];
+	float lane2x[lengthOfLane];
+	float lane2y[lengthOfLane];
+	float lane3x[lengthOfLane];
+	float lane3y[lengthOfLane];
+	float lane4x[lengthOfLane];
+	float lane4y[lengthOfLane];
 	float rblx[500];
 	float rbly[500];
 	float rbrx[500];
 	float rbry[500];
-	float ibx[3000];
-	float iby[3000];
-	float ibw[3000];
-	float ibl[3000];
-	float ibvx[3000];
-	float ibvy[3000];
-	float ibvabx[3000];
-	float ibvaby[3000];
-	int16_t ibcontournum[3000];
-	float ibcontourx[3000];
-	float ibcontoury[3000];
+	float ibx[lengthOfObj];
+	float iby[lengthOfObj];
+	float ibw[lengthOfObj];
+	float ibl[lengthOfObj];
+	float ibvx[lengthOfObj];
+	float ibvy[lengthOfObj];
+	float ibvabx[lengthOfObj];
+	float ibvaby[lengthOfObj];
+	int16_t ibcontournum[lengthOfObj];
+	float ibcontourx[lengthOfContour];
+	float ibcontoury[lengthOfContour];
 	float sonicx[1];
 	float sonicy[1];
 	float stopLaneDis;
