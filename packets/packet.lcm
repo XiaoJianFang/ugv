@@ -345,10 +345,10 @@ struct PacketFusion
 	float lane3y[lengthOfLane3];
 	float lane4x[lengthOfLane4];
 	float lane4y[lengthOfLane4];
-	float rblx[lengthOfRoadBound];
-	float rbly[lengthOfRoadBound];
-	float rbrx[lengthOfRoadBound];
-	float rbry[lengthOfRoadBound];
+	float rblx[lengthOfRoadBoundLeft];
+	float rbly[lengthOfRoadBoundLeft];
+	float rbrx[lengthOfRoadBoundRight];
+	float rbry[lengthOfRoadBoundRight];
 	float ibx[lengthOfObj];
 	float iby[lengthOfObj];
 	float ibw[lengthOfObj];
