@@ -1,0 +1,10 @@
+The following data is car upleft and downright's points y and x coordinates in result image start from 0
+507
+350
+740
+453
+The following data is the height of front and back fov and the width of left and right fov
+507
+507
+350
+350
