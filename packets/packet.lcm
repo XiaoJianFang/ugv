@@ -12,12 +12,25 @@ struct BoxPt
 	Point2D p3;
 }
 
+struct bbox_t 
+{
+	int16_t x;				// (x,y) - top-left corner, (w, h) - width & height of bounded box
+	int16_t y;
+	int16_t w;
+	int16_t h;
+	float prob;				// confidence - probability that the object was found correctly
+	int16_t obj_id;			// class of object - from range [0, classes-1]
+	int16_t track_id;		// tracking id for video (0 - untracked, 1 - inf - tracked object)
+	int16_t frames_counter;	// counter of frames on which the object was detected
+}
+
 struct BBox2D
 {
 	float x;
 	float y;
 	float w;
 	float h;
+	int16_t id;
 	int16_t cid;
 	string c;
 }
@@ -33,6 +46,7 @@ struct BBox3D
 	float yaw;
 	float pitch;
 	float roll;
+	int16_t id;
 	int16_t cid;
 	string c;
 }
