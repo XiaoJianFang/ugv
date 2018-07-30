@@ -408,6 +408,7 @@ struct PacketSpeedRequest
     int8_t gearPos;
 	float speedRequest;
     int32_t mapFlag;
+	int8_t parkFlag[10];
 }
 
 struct PacketPlan
