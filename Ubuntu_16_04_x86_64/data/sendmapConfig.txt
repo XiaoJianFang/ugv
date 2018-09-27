@@ -1,2 +1,8 @@
-#gpsMode=0;slamposMode=1
+#gpsMode=0;slamposMode=1  !!!!!there is no space after the file name
 1
+#gps  default=GPSMap.txt
+GPSMap.txt
+#slam  default=SlamPOSMap.txt
+SlamPOSMap.txt
+#map  default=20CMGridMap.txt
+20CMGridMap.txt
