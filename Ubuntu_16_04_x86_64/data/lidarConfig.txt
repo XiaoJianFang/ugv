@@ -6,3 +6,5 @@
 -100
 !period
 10
+！raw vlp collection flag default=1 
+1
