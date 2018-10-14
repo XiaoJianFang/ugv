@@ -1,4 +1,0 @@
-Log file created at: 2018/10/14 08:02:55
-Running on machine: xiaojian
-Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
-E1014 08:02:55.792517  1589 Entry.cpp:171] Config file open failed.
