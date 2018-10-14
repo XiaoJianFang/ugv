@@ -1,0 +1,7 @@
+Log file created at: 2018/10/14 08:02:55
+Running on machine: xiaojian
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1014 08:02:55.781134  1589 Entry.cpp:166] Fusion started!
+E1014 08:02:55.792517  1589 Entry.cpp:171] Config file open failed.
+I1014 08:02:55.792779  1589 Entry.cpp:177] Fusion thread started.
+I1014 08:02:55.892938  1589 Entry.cpp:180] Local mapping thread started.
