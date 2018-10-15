@@ -469,8 +469,9 @@ struct PacketHighResolutionMap
 
 struct PacketHighResolutionMapVector
 {
-    int16_t lengthOfGps;
-    int16_t lengthOfLane1;
+        byte laneType[4];
+        int16_t lengthOfGps;
+        int16_t lengthOfLane1;
 	int16_t lengthOfLane2;
 	int16_t lengthOfLane3;
 	int16_t lengthOfLane4;
