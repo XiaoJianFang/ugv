@@ -467,6 +467,34 @@ struct PacketHighResolutionMap
     int16_t pointxstyle[50];
 }
 
+struct PacketHighResolutionMapVector
+{
+    int16_t lengthOfGps;
+    int16_t lengthOfLane1;
+	int16_t lengthOfLane2;
+	int16_t lengthOfLane3;
+	int16_t lengthOfLane4;
+	int16_t lengthOfPointCloud;
+	int16_t lengthOfPointStyle;
+	float gpsx[lengthOfGps];		
+	float gpsy[lengthOfGps];		
+	float curve[lengthOfGps];		
+	byte MapFlag[lengthOfGps];	
+	float lane1x[lengthOfLane1];
+	float lane1y[lengthOfLane1];
+	float lane2x[lengthOfLane2];
+	float lane2y[lengthOfLane2];
+	float lane3x[lengthOfLane3];
+	float lane3y[lengthOfLane3];
+	float lane4x[lengthOfLane4];
+	float lane4y[lengthOfLane4];
+	float ibcontourx[lengthOfPointCloud];
+	float ibcontoury[lengthOfPointCloud];
+    float pointx[lengthOfPointStyle];
+    float pointy[lengthOfPointStyle];
+    int16_t pointxstyle[lengthOfPointStyle];
+}
+
 struct PacketImage
 {
 	int16_t rows;
