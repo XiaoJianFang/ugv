@@ -7,4 +7,4 @@ syntheticMap.txt
 #slam  default=SlamPOSMap.txt
 SlamPOSMap3.txt
 #map  default=20CMGridMap.txt
-HDMap.txt
+20CMGridMap.txt
