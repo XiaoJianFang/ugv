@@ -280,6 +280,7 @@ struct PacketIbeoVector
 	float iby[lengthOfObject];
 	float ibw[lengthOfObject];
 	float ibl[lengthOfObject];
+	float ibo[lengthOfObject];
 	float ibvx[lengthOfObject];
 	float ibvy[lengthOfObject];
 	float ibvabx[lengthOfObject];
@@ -387,6 +388,7 @@ struct PacketFusion
 	float iby[lengthOfObj];
 	float ibw[lengthOfObj];
 	float ibl[lengthOfObj];
+	float ibo[lengthOfObj];
 	float ibvx[lengthOfObj];
 	float ibvy[lengthOfObj];
 	float ibvabx[lengthOfObj];
