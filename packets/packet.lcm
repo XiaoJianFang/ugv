@@ -189,10 +189,23 @@ struct PacketRoad
 	int16_t crossdistance;
 }
 
-struct PacketTraffic
+struct PacketTrafficlight
 {
-	int64_t imgIndex;
-	int16_t trafficlight;
+	//0  red circle
+	//1  red foward
+	//2  red left
+	//3  red right
+	//4  green circle
+	//5  green foward
+	//6  green left
+	//7  green right
+	//8  yellow circle
+	//9  yellow foward
+	//10  yellow left
+	//11  yellow right
+	int64_t imgIndex;	
+	int16_t length;
+	bbox_t light[length];
 }
 
 struct PacketStopLine
