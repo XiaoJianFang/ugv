@@ -1,10 +1,10 @@
-#gpsMode=0;slamposMode=1;gpsSmoothMode=2  
+#GPS OfflineData Mode=0; SlamPosData Mode=1; GPSSmoothData Mode=2  
 0
-#gpsMode map file  
-1GPSMapNew.txt
-#slamposMode
-1SlamPosMapNew.txt
-#gpsXYSmoothMode  
-1GPSMapNew.txt
+#Mode=0 path file  
+GPSOfflineData.txt
+#Mode=1 path file
+SlamPosMapNew.txt
+#Mode=2  
+GPSMapNew.txt
 #high resolution map  
 NineGridMap1.2.txt
