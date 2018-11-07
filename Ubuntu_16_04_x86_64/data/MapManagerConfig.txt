@@ -1,0 +1,12 @@
+#GPSOffline Mode=0, save ./data/GPSMapOffline.txt;
+#SlamPosOffline Mode=1, save ./data/SlamPosMapOffline.txt;
+#SlamPos Mode=2;
+#GPS Mode=3;
+#HDMap Heigh Resolution Map
+[MODE] 2 
+[GPSOffline] GPSOffline.txt
+[SlamPosOffline] SlamPosOffline.txt
+[GPS] GPSMapNew.txt
+[SlamPos] SlamPosMapNew.txt
+[HDMap] NineGridMap1.2.txt
+
