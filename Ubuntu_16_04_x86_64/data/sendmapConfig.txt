@@ -1,10 +1,10 @@
-#gpsMode=0;slamposMode=1;gpsSmoothMode=2  !!!!!there is no space after the file name
+#gpsMode=0;slamposMode=1;gpsSmoothMode=2  
 0
-#gps  default=GPSMap.txt
-GPSMap2.txt
-#gpsXYSmooth  default=syntheticMap.txt
-syntheticMap.txt
-#slam  default=SlamPOSMap.txt
-SlamPOSMap3.txt
-#map  default=20CMGridMap.txt
-20CMGridMap.txt
+#gpsMode map file  
+1GPSMapNew.txt
+#slamposMode
+1SlamPosMapNew.txt
+#gpsXYSmoothMode  
+1GPSMapNew.txt
+#high resolution map  
+NineGridMap1.2.txt
