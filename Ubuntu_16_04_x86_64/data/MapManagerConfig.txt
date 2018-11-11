@@ -7,6 +7,7 @@
 [GPSOffline] GPSOffline.txt
 [SlamPosOffline] SlamPosOffline.txt
 [GPS] GPSMapNew.txt
-[SlamPos] SlamPosMapNew.txt
-[HDMap] NineGridMap1.2.txt
+[SlamPos] SlamPosMap.txt
+[HDMap] ParkingGridMap2.3.txt
+[ParkingMap] parking.txt
 
