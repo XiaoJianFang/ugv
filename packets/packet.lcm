@@ -79,6 +79,16 @@ struct PacketGPS
 	double longitudinalAcceleration;
 	double lateralAcceleration;
 }
+struct PacketIMU
+{
+	float roll;
+	float pitch;
+	float heading;
+	float q0;
+	float q1;
+	float q2;
+	float q3;
+}
 
 struct PacketSlamPos
 {
